@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6b6137a28b.js" crossorigin="anonymous"></script>    
+    <title>Document</title> 
+    <style>
+        *{
+           margin:0px;
+       }
+       h1{
+           text-align:center;
+           font-size:70px;
+       }
+       p{
+           text-align:center;
+           font-size:30px;
+           color:white;
+       }
+       form{
+           width:100vh;
+           height:auto;
+           text-align:justify;
+           margin:auto;
+           color:white;
+       }
+       fieldset{
+           border-radius:5px;
+           border: 5px black solid;
+       }
+       input{
+           border-radius:10px;
+           border: 3px white solid;
+       }
+       header{
+           color:white;
+           width:100%;
+           height:200px;  
+           font-family: 'Smooch', cursive;
+       }
+       body{
+           height: 110vh;
+           background-image:linear-gradient(coral, deeppink, deeppink, rgb(200, 7, 161),purple);
+           font-family: 'Sriracha', cursive;
+       }
+       
+   </style>
+</head>
+
+<body>
+   <ul>
+   
+   <Header>
+   <h1>Welcome!</h1>
+   </Header>
+   <form id="form">
+   <fieldset>
+       <legend>Personal Information</legend>
+       <label for="fname">First Name</label>
+       <input type="text" id="fname" placeholder="Jodi" pattern="\D+">        
+       <label for="lname">Last Name</label>
+       <input type="text" id="lname" placeholder="Hunter" pattern="\D+"  ><br>
+       <label for="ph">Phone Number:</label>
+       <input type="tel" id="ph" name="phone" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+       <label for="em">Email</label>
+       <input type="email" id="Em" name="email" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" placeholder="Email@example.com">
+   </fieldset>
+<br>
+   <fieldset>
+       <legend>Delivery Address</legend>
+   <label for="ad">Adress:</label>
+       <input type="text" id="ad" name="addr" placeholder="Adress">
+       <label for="ad1">City:</label>
+       <input type="text" id="ad1" name="city" pattern="\D+" placeholder="City">
+       <label for="st">State:</label>
+       <input type="text" id="st" name="State" pattern="\D+" placeholder="State">
+       <label for="zip">ZipCode:</label>
+       <input type="text" id="zip" name="zcode" placeholder="00000" pattern="^\d{5}$"><br><br>
+   </fieldset>
+   
+   <fieldset>
+       <legend>Payment information</legend>
+       <label for="pay">Payment type:</label><br>
+       <input type="radio" id="pay" name="pay"><i class="fa-brands fa-paypal" ></i><br>
+       <input type="radio" id="pay" name="pay"><i class="fa-brands fa-cc-mastercard"></i><br>
+       <input type="radio" id="pay" name="pay"><i class="fa-brands fa-cc-discover"></i></i><br>        
+       <input type="radio" id="pay" name="pay"><i class="fa-brands fa-cc-amex"></i><br>
+       <input type="radio" id="pay" name="pay"><i class="fa-brands fa-cc-visa"></i></i><br>
+
+       <label for="card">Credit card number:</label>
+       <input type="text" id="card" name="Payment" pattern="^\d{16}" placeholder="0000 0000 0000 0000">
+
+       <label for="card">CVC:</label>
+       <input type="text" id="card" name="Payment" pattern="^\d{3}" placeholder="000">
+       <br>
+       <input type="submit" id="Submit" value="Submit">
+       <br>
+        <div>
+            <label for="Message">Message</label>
+            <textarea id="Msg" name="message"></textarea>
+        </div>
+   </fieldset>
+   </form>
+
+<script>
+
+function validateForm(event) {
+  event.preventDefault();
+
+  formEmpty = false;
+
+  fname = document.getElementById("fname").value;
+  if (fname == "") {
+    formEmpty = true;
+  }
+
+  lname = document.getElementById("lname").value;
+  if (lname == "") {
+    formEmpty = true;
+  }
+
+  Email = document.getElementById("Em").value;
+  if (Email == "") {
+    formEmpty = true;
+  }
+
+  Msg = document.getElementById("Msg").value;
+  if (Msg == "") {
+    formEmpty = true;
+  }
+
+  if (!document.querySelector('input[name="pay"]:checked')) {
+    formEmpty = true;
+  }
+
+  if (formEmpty == true) {
+    alert("empty form");
+  } else {
+    alert("form is not empty");
+  }
+}
+
+Submit.addEventListener("click", validateForm)
+
+</script>
+</body>
+</html>
